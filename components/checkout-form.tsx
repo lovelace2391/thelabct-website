@@ -10,7 +10,9 @@ import {
 } from '@stripe/react-stripe-js'
 import { useRouter } from 'next/navigation'
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
+const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+  : null
 
 interface OrderSummary {
   className: string
@@ -490,7 +492,7 @@ export default function CheckoutForm({ order }: CheckoutFormProps) {
     )
   }
 
-  if (err || !clientSecret) {
+  if (err || !clientSecret || !stripePromise) {
     return (
       <div
         style={{
@@ -500,7 +502,7 @@ export default function CheckoutForm({ order }: CheckoutFormProps) {
           fontFamily: "'Inter', sans-serif",
         }}
       >
-        {err ?? 'Something went wrong. Please go back and try again.'}
+        {err ?? 'Payment service is not available. Please try again later.'}
       </div>
     )
   }
