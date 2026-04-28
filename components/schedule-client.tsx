@@ -176,7 +176,7 @@ export default function ScheduleClient({ groups }: Props) {
                         className="class-row"
                         style={{
                           display: 'grid',
-                          gridTemplateColumns: '100px 56px 1fr auto auto auto',
+                          gridTemplateColumns: '100px 72px 1fr auto auto auto',
                           alignItems: 'center',
                           gap: '16px',
                           padding: '18px 0',
@@ -198,7 +198,7 @@ export default function ScheduleClient({ groups }: Props) {
                         {/* Flyer thumbnail */}
                         <div
                           style={{
-                            width: '42px',
+                            width: '60px',
                             aspectRatio: '3/4',
                             borderRadius: '6px',
                             overflow: 'hidden',
@@ -213,7 +213,7 @@ export default function ScheduleClient({ groups }: Props) {
                               src={cls.flyer_url}
                               alt={cls.name}
                               fill
-                              sizes="42px"
+                              sizes="60px"
                               style={{ objectFit: 'cover' }}
                             />
                           ) : (
