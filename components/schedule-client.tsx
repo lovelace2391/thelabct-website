@@ -191,7 +191,7 @@ export default function ScheduleClient({ groups }: Props) {
                             letterSpacing: '0.04em',
                           }}
                         >
-                          {formatTime(schedule.start_time)}
+                          {formatTime(cls.start_time)}
                         </div>
 
                         {/* Class info */}

@@ -1,4 +1,4 @@
-import { supabaseServer } from './supabase-server'
+import { getSupabaseServer } from './supabase-server'
 
 export interface DanceClass {
   id: string
@@ -6,6 +6,7 @@ export interface DanceClass {
   style: string
   level: string
   instructor_name: string
+  start_time: string        // HH:MM:SS — lives on dance_classes, not class_schedules
   duration_minutes: number
   base_price_cents: number
   capacity: number
@@ -17,7 +18,6 @@ export interface DanceClass {
 export interface ClassSchedule {
   id: string
   date: string
-  start_time: string
   status: string
   dance_classes: DanceClass
   booking_count?: number
@@ -29,29 +29,33 @@ export interface ScheduleGroup {
 }
 
 export async function getUpcomingSchedules(): Promise<ClassSchedule[]> {
+  const db = getSupabaseServer()
   const today = new Date().toISOString().split('T')[0]
 
-  const { data, error } = await supabaseServer
+  const { data, error } = await db
     .from('class_schedules')
     .select(`
-      id, date, start_time, status,
+      id, date, status,
       dance_classes!inner(
-        id, name, style, level, instructor_name, duration_minutes,
+        id, name, style, level, instructor_name, start_time, duration_minutes,
         base_price_cents, capacity, color, flyer_url, description
       )
     `)
     .eq('status', 'scheduled')
     .gte('date', today)
     .order('date', { ascending: true })
-    .order('start_time', { ascending: true })
     .limit(60)
 
-  if (error || !data) return []
+  if (error) {
+    console.error('[getUpcomingSchedules] Supabase error:', error.message)
+    return []
+  }
+  if (!data) return []
 
   // Fetch booking counts for each schedule
   const schedules = await Promise.all(
     (data as unknown as ClassSchedule[]).map(async (schedule) => {
-      const { count } = await supabaseServer
+      const { count } = await db
         .from('bookings')
         .select('*', { count: 'exact', head: true })
         .eq('schedule_id', schedule.id)
@@ -96,7 +100,8 @@ export function spotsColor(capacity: number, booked: number): string {
 }
 
 export async function getClassById(id: string): Promise<DanceClass | null> {
-  const { data, error } = await supabaseServer
+  const db = getSupabaseServer()
+  const { data, error } = await db
     .from('dance_classes')
     .select('*')
     .eq('id', id)
@@ -107,14 +112,15 @@ export async function getClassById(id: string): Promise<DanceClass | null> {
 }
 
 export async function getSchedulesForClass(classId: string): Promise<ClassSchedule[]> {
+  const db = getSupabaseServer()
   const today = new Date().toISOString().split('T')[0]
 
-  const { data, error } = await supabaseServer
+  const { data, error } = await db
     .from('class_schedules')
     .select(`
-      id, date, start_time, status,
+      id, date, status,
       dance_classes!inner(
-        id, name, style, level, instructor_name, duration_minutes,
+        id, name, style, level, instructor_name, start_time, duration_minutes,
         base_price_cents, capacity, color, flyer_url, description
       )
     `)
@@ -128,7 +134,7 @@ export async function getSchedulesForClass(classId: string): Promise<ClassSchedu
 
   const schedules = await Promise.all(
     (data as unknown as ClassSchedule[]).map(async (schedule) => {
-      const { count } = await supabaseServer
+      const { count } = await db
         .from('bookings')
         .select('*', { count: 'exact', head: true })
         .eq('schedule_id', schedule.id)
