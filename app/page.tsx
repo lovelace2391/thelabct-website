@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '@/components/nav'
 import Footer from '@/components/footer'
@@ -324,9 +323,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── INSTRUCTOR IN FOCUS §03 ──────────────────────────────── */}
+      {/* ── ABOUT US §03 ────────────────────────────────────────── */}
       <section
-        id="instructor"
+        id="about"
         style={{
           background: 'var(--bg-2)',
           borderTop: '1px solid var(--line)',
@@ -338,160 +337,58 @@ export default function HomePage() {
             margin: '0 auto',
             padding: '96px 24px',
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: '160px 1fr',
             gap: '64px',
-            alignItems: 'center',
+            alignItems: 'start',
           }}
         >
-          {/* Left: photo placeholder */}
-          <div style={{ position: 'relative' }}>
-            <div
-              style={{
-                aspectRatio: '3/4',
-                background: 'var(--bg-3)',
-                borderRadius: '12px',
-                overflow: 'hidden',
-                border: '1px solid var(--line)',
-                position: 'relative',
-              }}
-            >
-              <Image
-                src="/images/flyers/tia-lyss.jpg"
-                alt="Featured Instructor"
-                fill
-                style={{ objectFit: 'cover', objectPosition: 'top' }}
-              />
-              {/* Overlay gradient */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%)',
-                }}
-              />
-            </div>
-
-            {/* Label over photo */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '24px',
-                left: '24px',
-              }}
-            >
-              <div className="section-label" style={{ marginBottom: '4px' }}>
-                §03
-              </div>
-              <div className="section-label" style={{ color: 'var(--ink-4)' }}>
-                Instructor in focus
-              </div>
+          {/* Left label */}
+          <div>
+            <div className="section-label">§03</div>
+            <div className="section-label" style={{ color: 'var(--ink-4)', marginTop: '4px' }}>
+              About us
             </div>
           </div>
 
-          {/* Right: info */}
+          {/* Right content */}
           <div>
             <h2
               style={{
                 fontFamily: "'Azonix', 'Anton', 'Bebas Neue', Impact, sans-serif",
-                fontSize: 'clamp(36px, 5vw, 72px)',
-                lineHeight: 0.92,
+                fontSize: 'clamp(40px, 6vw, 80px)',
+                lineHeight: 0.9,
                 color: 'var(--ink)',
-                marginBottom: '12px',
+                marginBottom: '32px',
               }}
             >
-              TIA-LYSS
+              ABOUT US
             </h2>
-            <div
+            <p
               style={{
-                display: 'flex',
-                gap: '8px',
-                flexWrap: 'wrap',
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: '17px',
+                color: 'var(--ink-2)',
+                maxWidth: '640px',
+                lineHeight: '1.75',
                 marginBottom: '24px',
               }}
             >
-              {['Heels', 'Street Jazz', 'Contemporary'].map((s) => (
-                <span
-                  key={s}
-                  className="pill"
-                  style={{
-                    background: 'rgba(139,92,246,0.12)',
-                    color: 'var(--accent-2)',
-                    border: '1px solid rgba(139,92,246,0.2)',
-                    fontSize: '10px',
-                  }}
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
-
-            <blockquote
+              The Lab CT is a creative movement space in Cheshire, Connecticut — built for dancers who take their craft seriously and for people who are just getting started. We offer drop-in classes in hip-hop, heels, street jazz, and latin fusion, with instructors who bring real-world performance experience into every session.
+            </p>
+            <p
               style={{
-                fontFamily: "'Instrument Serif', Georgia, serif",
-                fontStyle: 'italic',
-                fontSize: '22px',
-                lineHeight: 1.4,
-                color: 'var(--ink-2)',
-                marginBottom: '32px',
-                paddingLeft: '20px',
-                borderLeft: '2px solid var(--accent)',
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: '17px',
+                color: 'var(--ink-3)',
+                maxWidth: '640px',
+                lineHeight: '1.75',
+                marginBottom: '40px',
               }}
             >
-              &ldquo;Dance isn&apos;t a performance. It&apos;s a conversation between your body and the music. I teach people how to listen.&rdquo;
-            </blockquote>
-
-            {/* Stats */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '20px',
-                marginBottom: '36px',
-              }}
-            >
-              {[
-                { num: '8+', label: 'Years teaching' },
-                { num: '300+', label: 'Students trained' },
-                { num: '4', label: 'Styles taught' },
-                { num: '12+', label: 'Workshops/year' },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  style={{
-                    background: 'var(--bg-3)',
-                    borderRadius: '10px',
-                    padding: '16px',
-                    border: '1px solid var(--line)',
-                  }}
-                >
-                  <div
-                    style={{
-                      fontFamily: "'Azonix', 'Anton', sans-serif",
-                      fontSize: '28px',
-                      color: 'var(--accent)',
-                      lineHeight: 1,
-                      marginBottom: '4px',
-                    }}
-                  >
-                    {stat.num}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: '10px',
-                      color: 'var(--ink-4)',
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
+              Founded in 2019, we set out to create a space where movement is studied, celebrated, and shared — no ego, no gatekeeping, just good music and great energy. Whether you&apos;re training for a stage or just want to move your body, you&apos;re welcome here.
+            </p>
             <Link href="/schedule">
-              <button className="btn-ghost">Meet the full crew →</button>
+              <button className="btn-accent">Book a class →</button>
             </Link>
           </div>
         </div>
