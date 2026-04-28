@@ -9,8 +9,8 @@ interface Props {
   searchParams: Promise<{ ref?: string }>
 }
 
-async function ConfirmationContent({ ref: refNum }: { ref: string | undefined }) {
-  const displayRef = refNum ?? 'LAB' + Math.random().toString(36).slice(2, 8).toUpperCase()
+async function ConfirmationContent({ bookingRef }: { bookingRef: string | undefined }) {
+  const displayRef = bookingRef ?? 'LAB' + Math.random().toString(36).slice(2, 8).toUpperCase()
 
   return (
     <>
@@ -521,7 +521,7 @@ export default async function ConfirmationPage({ searchParams }: Props) {
     <>
       <Nav />
       <Suspense fallback={null}>
-        <ConfirmationContent ref={ref} />
+        <ConfirmationContent bookingRef={ref} />
       </Suspense>
       <Footer />
     </>
