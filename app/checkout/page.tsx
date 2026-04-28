@@ -54,7 +54,7 @@ async function CheckoutContent({ scheduleId, classId }: { scheduleId: string; cl
     style: cls.style,
     instructorName: cls.instructor_name,
     date: formatDateStr(schedule.date),
-    time: formatTime(schedule.start_time),
+    time: formatTime(cls.start_time),
     priceCents: cls.base_price_cents,
     flyerUrl: cls.flyer_url,
     scheduleId: schedule.id,

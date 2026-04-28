@@ -320,7 +320,7 @@ export default async function ClassDetailPage({ params, searchParams }: Props) {
                             marginBottom: '4px',
                           }}
                         >
-                          {dt.weekday} · {formatTime(schedule.start_time)}
+                          {dt.weekday} · {formatTime(cls.start_time)}
                         </div>
                         <div
                           style={{
