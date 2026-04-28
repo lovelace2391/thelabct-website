@@ -65,9 +65,9 @@ export default function Footer() {
                 lineHeight: '1.7',
               }}
             >
-              118 South St<br />
-              Danbury, CT 06810<br />
-              Est. 2014
+              490 Cornwall Ave<br />
+              Cheshire, CT 06410<br />
+              Est. 2019
             </p>
           </div>
 
@@ -153,7 +153,7 @@ export default function Footer() {
                 { label: 'Download the App', href: '/the-app' },
                 { label: 'Memberships', href: '/the-app' },
                 { label: 'Class Packs', href: '/the-app' },
-                { label: 'Chemicals (Rewards)', href: '/the-app' },
+                { label: 'Molecules (Rewards)', href: '/the-app' },
               ].map((l) => (
                 <Link
                   key={l.label}

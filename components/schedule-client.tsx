@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { ScheduleGroup } from '@/lib/data'
 import { formatPrice, spotsLabel, spotsColor } from '@/lib/data'
 
@@ -175,7 +176,7 @@ export default function ScheduleClient({ groups }: Props) {
                         className="class-row"
                         style={{
                           display: 'grid',
-                          gridTemplateColumns: '100px 1fr auto auto auto',
+                          gridTemplateColumns: '100px 56px 1fr auto auto auto',
                           alignItems: 'center',
                           gap: '16px',
                           padding: '18px 0',
@@ -192,6 +193,38 @@ export default function ScheduleClient({ groups }: Props) {
                           }}
                         >
                           {formatTime(cls.start_time)}
+                        </div>
+
+                        {/* Flyer thumbnail */}
+                        <div
+                          style={{
+                            width: '42px',
+                            aspectRatio: '3/4',
+                            borderRadius: '6px',
+                            overflow: 'hidden',
+                            position: 'relative',
+                            background: 'var(--bg-2)',
+                            border: '1px solid var(--line)',
+                            flexShrink: 0,
+                          }}
+                        >
+                          {cls.flyer_url ? (
+                            <Image
+                              src={cls.flyer_url}
+                              alt={cls.name}
+                              fill
+                              sizes="42px"
+                              style={{ objectFit: 'cover' }}
+                            />
+                          ) : (
+                            <div
+                              style={{
+                                width: '100%',
+                                height: '100%',
+                                background: cls.color ?? 'var(--bg-3)',
+                              }}
+                            />
+                          )}
                         </div>
 
                         {/* Class info */}

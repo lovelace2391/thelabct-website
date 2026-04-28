@@ -78,7 +78,7 @@ export default function HomePage() {
               marginBottom: '28px',
             }}
           >
-            Danbury · Connecticut — Est. 2014
+            Cheshire · Connecticut — Est. 2019
           </div>
 
           {/* H1 */}
@@ -123,7 +123,7 @@ export default function HomePage() {
               marginBottom: '36px',
             }}
           >
-            Hip-hop, heels, jazz, ballet, contemporary — every body, every level, every week.
+            Hip-hop, heels, street jazz, latin fusion — every body, every level, every week.
           </p>
 
           {/* CTAs */}
@@ -203,40 +203,8 @@ export default function HomePage() {
                 marginBottom: '32px',
               }}
             >
-              Since 2014, we&apos;ve been training dancers across all styles and levels in Danbury, Connecticut. Whether you&apos;re stepping into a studio for the first time or you&apos;ve been dancing for decades, you&apos;ll find your people here.
+              Since 2019, we&apos;ve been training dancers across all styles and levels in Cheshire, Connecticut. Whether you&apos;re stepping into a studio for the first time or you&apos;ve been dancing for decades, you&apos;ll find your people here.
             </p>
-            <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
-              {[
-                { num: '10+', label: 'Years open' },
-                { num: '20+', label: 'Instructors' },
-                { num: '500+', label: 'Students' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div
-                    style={{
-                      fontFamily: "'Azonix', 'Anton', sans-serif",
-                      fontSize: '36px',
-                      color: 'var(--accent)',
-                      lineHeight: 1,
-                      marginBottom: '4px',
-                    }}
-                  >
-                    {stat.num}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: '11px',
-                      color: 'var(--ink-4)',
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -281,7 +249,7 @@ export default function HomePage() {
                 color: 'var(--ink)',
               }}
             >
-              FIVE WAYS<br />TO MOVE
+              WAYS<br />TO MOVE
             </h2>
           </div>
 
@@ -584,7 +552,7 @@ export default function HomePage() {
               {[
                 { icon: '◈', title: 'Memberships', desc: 'Unlimited access, monthly billing' },
                 { icon: '◷', title: 'Class Packs', desc: '5 or 10 classes, save up to 30%' },
-                { icon: '◉', title: 'Chemicals', desc: 'Points that earn real rewards' },
+                { icon: '◉', title: 'Molecules', desc: 'Points that earn real rewards' },
                 { icon: '◔', title: 'Crew', desc: 'Connect with instructors & students' },
               ].map((item) => (
                 <div key={item.title} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>

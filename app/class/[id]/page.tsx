@@ -147,8 +147,9 @@ export default async function ClassDetailPage({ params, searchParams }: Props) {
                 overflow: 'hidden',
                 marginBottom: '40px',
                 border: '1px solid var(--line)',
-                height: '460px',
+                aspectRatio: '3/4',
                 position: 'relative',
+                maxWidth: '480px',
               }}
             >
               <Image

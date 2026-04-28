@@ -35,7 +35,7 @@ export default function VisitPage() {
               marginBottom: '20px',
             }}
           >
-            Find us — Danbury, Connecticut
+            Find us — Cheshire, Connecticut
           </div>
           <h1
             style={{
@@ -72,7 +72,7 @@ export default function VisitPage() {
               lineHeight: '1.6',
             }}
           >
-            We&apos;re in the heart of Danbury, CT. Come early, bring water, and be ready to move.
+            We&apos;re in Cheshire, CT. Come early, bring water, and be ready to move.
           </p>
         </div>
       </section>
@@ -124,7 +124,7 @@ export default function VisitPage() {
                     marginBottom: '4px',
                   }}
                 >
-                  118 South St
+                  490 Cornwall Ave
                 </div>
                 <div
                   style={{
@@ -134,10 +134,10 @@ export default function VisitPage() {
                     marginBottom: '20px',
                   }}
                 >
-                  Danbury, CT 06810
+                  Cheshire, CT 06410
                 </div>
                 <a
-                  href="https://maps.google.com/?q=118+South+St+Danbury+CT+06810"
+                  href="https://maps.google.com/?q=490+Cornwall+Ave+Cheshire+CT+06410"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ textDecoration: 'none' }}
@@ -226,8 +226,7 @@ export default function VisitPage() {
               >
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                   {[
-                    'Free street parking on South St and adjacent streets',
-                    'Municipal parking garage 2 blocks north on Main St',
+                    'Free parking open in the plaza',
                     'Accessible spots available — contact us if you need assistance',
                   ].map((item) => (
                     <li
@@ -263,8 +262,8 @@ export default function VisitPage() {
                 }}
               >
                 {[
-                  { label: 'Email', value: 'hello@thelabct.com', href: 'mailto:hello@thelabct.com' },
-                  { label: 'Instagram', value: '@thelabct', href: 'https://instagram.com/thelabct' },
+                  { label: 'Email', value: 'info@thelabct.net', href: 'mailto:info@thelabct.net' },
+                  { label: 'Instagram', value: '@thelabcreativespace', href: 'https://instagram.com/thelabcreativespace' },
                 ].map((contact) => (
                   <div
                     key={contact.label}
